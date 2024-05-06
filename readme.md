@@ -1,3 +1,5 @@
+> This package is forked from [kutia-software-company/larafirebase](https://github.com/kutia-software-company/larafirebase)
+
 <p align="center"><img src="/art/cover.png" height="400"></p>
 
 <p align="center">
@@ -12,7 +14,6 @@
     </a>
 </p>
 
-
 ### Introduction
 
 **Larafirebase** is a package thats offers you to send push notifications or custom messages via Firebase in Laravel.
@@ -24,7 +25,6 @@ For use cases such as instant messaging, a message can transfer a payload of up 
 ### Installation
 
 Follow the steps below to install the package.
-
 
 **Composer**
 
@@ -73,7 +73,7 @@ class MyController
                 'badge' => 0,
             ])
             ->sendNotification($this->deviceTokens);
-        
+
         // Or
         return Larafirebase::fromArray(['title' => 'Test Title', 'body' => 'Test body'])->sendNotification($this->deviceTokens);
     }
@@ -83,7 +83,7 @@ class MyController
         return Larafirebase::withTitle('Test Title')
             ->withBody('Test body')
             ->sendMessage($this->deviceTokens);
-            
+
         // Or
         return Larafirebase::fromArray(['title' => 'Test Title', 'body' => 'Test body'])->sendMessage($this->deviceTokens);
     }
@@ -115,7 +115,7 @@ class SendBirthdayReminder extends Notification
             '{TOKEN_1}',
             '{TOKEN_2}'
         ];
-        
+
         return (new FirebaseMessage)
             ->withTitle('Hey, ', $notifiable->first_name)
             ->withBody('Happy Birthday!')
@@ -124,11 +124,10 @@ class SendBirthdayReminder extends Notification
 }
 ```
 
-
 ### Tips
-- Check example how to receive messages or push notifications in a [JavaScript client](/javascript-client).
-- You can use `larafirebase()` helper instead of Facade.
 
+-   Check example how to receive messages or push notifications in a [JavaScript client](/javascript-client).
+-   You can use `larafirebase()` helper instead of Facade.
 
 ### Payload
 
@@ -142,14 +141,12 @@ Larafirebase::withTitle('Test Title')->withBody('Test body')->sendNotification('
 
 ```json
 {
-  "registration_ids": [
-    "token1"
-  ],
-  "notification": {
-    "title": "Test Title",
-    "body": "Test body"
-  },
-  "priority": "normal"
+	"registration_ids": ["token1"],
+	"notification": {
+		"title": "Test Title",
+		"body": "Test body"
+	},
+	"priority": "normal"
 }
 ```
 
@@ -161,13 +158,11 @@ Larafirebase::withTitle('Test Title')->withBody('Test body')->sendMessage('token
 
 ```json
 {
-  "registration_ids": [
-    "token1"
-  ],
-  "data": {
-    "title": "Test Title",
-    "body": "Test body"
-  }
+	"registration_ids": ["token1"],
+	"data": {
+		"title": "Test Title",
+		"body": "Test body"
+	}
 }
 ```
 
